@@ -4,12 +4,14 @@ import HeroSection from "../components/hero/HeroSection.astro";
 import LocationSection from "../components/location/LocationSection.astro";
 import MenuSection from "../components/menu/MenuSection.astro";
 import TestimonialCarousel from "../components/testimonial/TestimonialCarrusel";
+import BentoGridExperience from "../components/experience/BentoGirdExperience.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <HeroSection />
   <MenuSection />
+  <BentoGridExperience />
   <AboutUs />
   <TestimonialCarousel client:load />
   <LocationSection />

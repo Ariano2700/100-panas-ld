@@ -16,7 +16,7 @@ export default function TestimonialCarousel() {
   }, [current, autoplay]);
 
   return (
-    <section className="py-16 bg-gray-50 min-h-screen">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center mb-12 text-center">
           <span className="mb-4 bg-[#E56053] text-white text-sm font-medium px-3 py-1 rounded-full">

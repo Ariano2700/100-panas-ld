@@ -1,0 +1,205 @@
+---
+import Image from "astro/components/Image.astro";
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex flex-col items-center justify-center mb-12 text-center">
+      <span
+        class="mb-4 bg-[#E56053] text-white text-sm font-medium px-3 py-1 rounded-full"
+      >
+        Por Qué Elegirnos
+      </span>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        La Experiencia 100% PANAS
+      </h2>
+      <p class="mt-4 text-gray-600 md:text-xl">
+        Descubre lo que nos hace especiales
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Ingredientes Frescos -->
+      <div class="md:col-span-2 row-span-1">
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 group hover:scale-[1.02] flex flex-col md:flex-row h-auto"
+        >
+          <div class="relative w-full md:w-1/2 h-40 md:h-56">
+            <Image
+              src="/verduras_frescas.jpg"
+              alt="Ingredientes frescos"
+              width={600}
+              height={224}
+              class="object-cover w-full h-full absolute inset-0"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-2 mb-2">
+              <svg
+                class="h-5 w-5 text-[#E56053]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                ></path>
+              </svg>
+              <h3 class="text-xl font-bold">Ingredientes Frescos</h3>
+            </div>
+            <p class="text-gray-600">
+              Utilizamos solo los ingredientes más frescos y de la mejor calidad
+              para preparar nuestras hamburguesas. Cada día seleccionamos
+              cuidadosamente nuestros productos para garantizar el mejor sabor
+              en cada bocado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calidad Premium -->
+      <div class="row-span-1">
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 group hover:scale-[1.02] p-6 flex flex-col justify-center h-full md:h-56"
+        >
+          <div class="flex items-center gap-2 mb-2">
+            <svg
+              class="h-5 w-5 text-[#E56053]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+              ></path>
+            </svg>
+            <h3 class="text-xl font-bold">Calidad Premium</h3>
+          </div>
+          <p class="text-gray-600">
+            Nos comprometemos a ofrecer la mejor calidad en cada hamburguesa que
+            servimos, cuidando cada detalle del proceso.
+          </p>
+        </div>
+      </div>
+
+      <!-- Agrupación de los 3 bloques + imagen lateral -->
+      <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Bloques de Servicio Rápido y Clientes Satisfechos en dos columnas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 min-w-full">
+          <!-- Servicio Rápido -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 group hover:scale-[1.02] p-6 flex flex-col justify-center h-full"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <svg
+                class="h-5 w-5 text-[#E56053]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h3 class="text-xl font-bold">Servicio Rápido</h3>
+            </div>
+            <p class="text-gray-600">
+              Valoramos tu tiempo. Nuestro equipo trabaja eficientemente para
+              servirte lo más rápido posible sin comprometer la calidad.
+            </p>
+          </div>
+          <!-- Clientes Satisfechos -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 group hover:scale-[1.02] p-6 flex flex-col justify-center h-full"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <svg
+                class="h-5 w-5 text-[#E56053]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                ></path>
+              </svg>
+              <h3 class="text-xl font-bold">Clientes Satisfechos</h3>
+            </div>
+            <p class="text-gray-600">
+              La satisfacción de nuestros clientes es nuestra prioridad. Nos
+              esforzamos por superar tus expectativas en cada visita.
+            </p>
+          </div>
+          <!-- Recetas Únicas (ocupa ambas columnas en mobile, solo una en desktop) -->
+          <div
+            class="col-span-1 md:col-span-2 bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 group hover:scale-[1.02] flex flex-col md:flex-row mt-6"
+          >
+            <div class="p-6 flex flex-col justify-center flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <svg
+                  class="h-5 w-5 text-[#E56053]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                  ></path>
+                </svg>
+                <h3 class="text-xl font-bold">Recetas Únicas</h3>
+              </div>
+              <p class="text-gray-600">
+                Nuestras recetas han sido perfeccionadas con el tiempo para
+                ofrecerte combinaciones de sabores únicas que no encontrarás en
+                ningún otro lugar. Cada hamburguesa es una obra maestra
+                culinaria.
+              </p>
+            </div>
+            <div class="relative w-full md:w-1/2 h-40 md:h-56">
+              <Image
+                width={600}
+                height={224}
+                src="/recetas.jpg"
+                alt="Recetas únicas"
+                class="object-cover w-full h-full absolute inset-0"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Imagen lateral -->
+        <div class="rounded-lg overflow-hidden shadow-md hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center">
+          <Image
+            src="/cremas.jpg"
+            alt="Variedad de cremas"
+            width={400}
+            height={400}
+            class="object-cover w-[700px] h-[400px] mx-auto rounded-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
