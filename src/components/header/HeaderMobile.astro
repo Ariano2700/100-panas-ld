@@ -1,0 +1,220 @@
+---
+import Image from "astro/components/Image.astro";
+import LucideShoppingCart from "../../assets/icons/lucide/LucideShoppingCart.astro";
+import OcticonThreeBars16 from "../../assets/icons/octicon/OcticonThreeBars16.astro";
+import MiClose from "../../assets/icons/mono_icons/MiClose.astro";
+import type { NavItemInterface } from "../../interfaces/NavItemInterface";
+const { navItems, cartItems } = Astro.props;
+---
+
+<header
+  id="main-header-mobile"
+  class="md:hidden fixed top-0 left-0 right-0 z-50"
+>
+  <div class="container mx-auto px-4 flex items-center justify-between h-16">
+    <!-- Logo -->
+    <button
+      id="logo-btn-mobile"
+      class="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer"
+      type="button"
+    >
+      <Image
+        src="/100panas_logo.webp"
+        alt="100% PANAS Logo"
+        width="40"
+        height="40"
+        class="w-8 h-8"
+        loading="eager"
+      />
+      <span
+        id="logo-text-mobile"
+        class="font-bold text-lg transition-colors text-white"
+      >
+        100% <span class="text-[#E56053]">PANAS</span>
+      </span>
+    </button>
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="p-2 rounded-full transition-colors text-white hover:text-[#E56053] hover:bg-white/10 text-2xl"
+      type="button"
+    >
+      <OcticonThreeBars16 />
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 z-50 pointer-events-none"
+  aria-hidden="true"
+>
+  <!-- Overlay background -->
+  <div
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 transition-opacity duration-300"
+    id="mobile-menu-bg"
+  >
+  </div>
+  <!-- Side menu -->
+  <div
+    id="mobile-menu-panel"
+    class="fixed right-0 top-0 h-full max-h-screen w-[85vw] max-w-xs bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col"
+  >
+    <div class="flex flex-col h-full p-6 bg-white">
+      <!-- Mobile Menu Header -->
+      <div
+        class="flex items-center justify-between pb-6 border-b border-gray-200"
+      >
+        <div class="flex items-center space-x-2">
+          <Image
+            src="/100panas_logo.webp"
+            alt="100% PANAS Logo"
+            width="32"
+            height="32"
+            loading="eager"
+          />
+          <span class="font-bold text-lg">
+            100% <span class="text-[#E56053]">PANAS</span>
+          </span>
+        </div>
+        <button
+          id="close-mobile-menu"
+          class="p-2 rounded-full hover:bg-gray-100 text-2xl"
+          type="button"
+        >
+          <MiClose />
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="flex flex-col space-y-4 pt-6">
+        {
+          navItems.map((item: NavItemInterface) => (
+            <a
+              href={item.id === "inicio" ? "/" : `#${item.id}`}
+              class="text-left text-lg font-medium text-gray-700 hover:text-[#E56053] transition-colors py-2"
+              data-section={item.id}
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </nav>
+
+      <!-- Mobile Cart Section -->
+      <div class="mt-auto pt-6 border-t border-gray-200">
+        <button
+          class="w-full bg-[#E56053] hover:bg-[#E56053]/80 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-3"
+          type="button"
+        >
+          <LucideShoppingCart />
+          Ver Carrito ({cartItems})
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Elementos
+    const header = document.getElementById("main-header-mobile");
+    const logoText = document.getElementById("logo-text-mobile");
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const overlay = document.getElementById("mobile-menu-overlay");
+    const bg = document.getElementById("mobile-menu-bg");
+    const panel = document.getElementById("mobile-menu-panel");
+    const openBtn = document.getElementById("mobile-menu-btn");
+    const closeBtn = document.getElementById("close-mobile-menu");
+
+    // Cambia color de fondo y texto al hacer scroll
+    function handleScroll() {
+      if (!header || !logoText || !menuBtn) return;
+      if (window.scrollY > 50) {
+        header.classList.add("bg-white/95", "backdrop-blur-md", "shadow-lg");
+        header.classList.remove("bg-transparent");
+        logoText.classList.remove("text-white");
+        logoText.classList.add("text-gray-900");
+        menuBtn.classList.remove("text-white");
+        menuBtn.classList.add("text-gray-700");
+      } else {
+        header.classList.remove("bg-white/95", "backdrop-blur-md", "shadow-lg");
+        header.classList.add("bg-transparent");
+        logoText.classList.add("text-white");
+        logoText.classList.remove("text-gray-900");
+        menuBtn.classList.add("text-white");
+        menuBtn.classList.remove("text-gray-700");
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Ejecuta una vez al cargar
+
+    // Estado
+    let isOpen = false;
+
+    function openMenu() {
+      isOpen = true;
+      overlay.setAttribute("aria-hidden", "false");
+      overlay.classList.remove("pointer-events-none");
+      bg.classList.remove("opacity-0");
+      bg.classList.add("opacity-100");
+      panel.classList.remove("translate-x-full");
+      panel.classList.add("translate-x-0");
+      setTimeout(() => {
+        overlay.classList.add("pointer-events-auto");
+      }, 10);
+    }
+    function closeMenu() {
+      isOpen = false;
+      overlay.classList.remove("pointer-events-auto");
+      bg.classList.remove("opacity-100");
+      bg.classList.add("opacity-0");
+      panel.classList.remove("translate-x-0");
+      panel.classList.add("translate-x-full");
+      setTimeout(() => {
+        overlay.classList.add("pointer-events-none");
+        overlay.setAttribute("aria-hidden", "true");
+      }, 300);
+    }
+
+    if (openBtn) openBtn.addEventListener("click", openMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    if (bg) bg.addEventListener("click", closeMenu);
+
+    // Cierra menú al navegar
+    document
+      .querySelectorAll("#mobile-menu-panel [data-section]")
+      .forEach((a) => {
+        a.addEventListener("click", closeMenu);
+      });
+
+    // Cierra con ESC
+    document.addEventListener("keydown", (e) => {
+      if (isOpen && e.key === "Escape") closeMenu();
+    });
+
+    // Logo scroll arriba
+    const logoBtn = document.getElementById("logo-btn-mobile");
+    if (logoBtn) {
+      logoBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        closeMenu();
+      });
+    }
+
+    // Scroll suave a secciones
+    document
+      .querySelectorAll("#mobile-menu-panel [data-section]")
+      .forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const sectionId = btn.getAttribute("data-section");
+          if (sectionId === "inicio") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          } else {
+            const el = document.getElementById(sectionId);
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+  });
+</script>

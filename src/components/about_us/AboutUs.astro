@@ -1,0 +1,52 @@
+---
+import Image from "astro/components/Image.astro";
+import LucidePhone from "../../assets/icons/lucide/LucidePhone.astro";
+import LucideClock from "../../assets/icons/lucide/LucideClock.astro";
+---
+
+<section id="nosotros" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid gap-12 md:grid-cols-2 items-center">
+      <div class="space-y-4">
+        <span
+          class="bg-[#E56053] text-white text-sm font-medium px-3 py-1 rounded-full"
+          >Quiénes Somos</span
+        >
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          100% PANAS - Hamburguesas con Pasión
+        </h2>
+        <p class="text-gray-600 md:text-lg">
+          Somos una hamburguesería comprometida con ofrecer los mejores sabores
+          utilizando ingredientes frescos y de calidad. Nuestra pasión es crear
+          hamburguesas deliciosas que te hagan volver por más.
+        </p>
+        <p class="text-gray-600 md:text-lg">
+          Desde nuestros inicios, nos hemos dedicado a perfeccionar cada receta
+          para asegurar que cada bocado sea una experiencia única. Nuestro
+          equipo trabaja con dedicación para brindarte el mejor servicio y los
+          sabores más auténticos.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <div class="flex items-center gap-2">
+            <LucideClock class="h-5 w-5 text-[#E56053]" />
+            <span>Lun - Dom: 12:00 - 22:00</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <LucidePhone class="h-5 w-5 text-[#E56053]" />
+            <span>+51 999 888 777</span>
+          </div>
+        </div>
+      </div>
+      <div class="relative h-[400px] rounded-lg overflow-hidden">
+        <Image
+          src="/placeholder.svg?height=400&width=600"
+          alt="Local 100% PANAS"
+          class="object-cover"
+          width={600}
+          height={400}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>

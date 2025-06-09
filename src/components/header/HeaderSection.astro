@@ -1,0 +1,10 @@
+---
+import { navItems } from "../../const/navItems";
+import HeaderDesktop from "./HeaderDesktop.astro";
+import HeaderMobile from "./HeaderMobile.astro";
+
+const cartItems = 2; // Puedes cambiar esto si tienes lógica de carrito
+---
+
+<HeaderDesktop navItems={navItems} cartItems={cartItems} />
+<HeaderMobile navItems={navItems} cartItems={cartItems} />

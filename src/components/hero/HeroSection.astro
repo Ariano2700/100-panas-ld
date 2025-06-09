@@ -1,0 +1,111 @@
+---
+import Image from "astro/components/Image.astro";
+import MaterialSymbolsArrowBackIosRounded from "../../assets/icons/material_symbols/MaterialSymbolsArrowBackIosRounded.astro";
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll('[data-scroll-to="menu"]');
+    const menuSection = document.getElementById("menu");
+
+    if (!menuSection) return;
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        menuSection.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+</script>
+
+<section
+  class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black to-gray-900 text-white"
+>
+  <div class="absolute inset-0 z-0">
+    <Image
+      src="/burgers_bg.webp"
+      alt="Fondo de hamburguesas"
+      class="object-cover w-full h-full opacity-30"
+      loading="eager"
+      width={1920}
+      height={1080}
+    />
+  </div>
+
+  <div
+    class="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center"
+  >
+    <div class="mb-8 md:mb-12 animate-fade-up" style="animation-delay: 0ms;">
+      <Image
+        loading="eager"
+        src="/100panas_logo.webp"
+        alt="100% PANAS Logo"
+        width={250}
+        height={250}
+        class="mx-auto w-[200px] md:w-[250px] h-auto"
+      />
+    </div>
+
+    <h1
+      class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 animate-fade-up"
+      style="animation-delay: 200ms;"
+    >
+      <span class="text-[#E56053]">100%</span> PANAS
+    </h1>
+
+    <h2
+      class="max-w-[700px] text-xl md:text-2xl text-gray-300 mb-8 md:mb-12 animate-fade-up"
+      style="animation-delay: 400ms;"
+    >
+      ¡Las hamburguesas más deliciosas de Piura, hechas con ingredientes frescos
+      y de calidad!
+    </h2>
+
+    <div
+      class="flex flex-col sm:flex-row gap-4 animate-fade-up"
+      style="animation-delay: 600ms;"
+    >
+      <button
+        class="bg-[#E56053] hover:bg-[#E56053]/80 text-white p-4 rounded-lg transition-all duration-300 cursor-pointer"
+        data-scroll-to="menu"
+      >
+        Ver Menú
+      </button>
+      <button
+        class="border-white text-white hover:bg-white p-4 rounded-lg transition-all duration-300 cursor-pointer hover:text-black"
+      >
+        Ordenar Ahora
+      </button>
+    </div>
+  </div>
+  <div
+    class="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce md:bottom-8"
+  >
+    <button class="text-white rounded-full" data-scroll-to="menu">
+      <MaterialSymbolsArrowBackIosRounded class="h-8 w-8 -rotate-90" />
+      <span class="sr-only">Desplazar hacia abajo</span>
+    </button>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    opacity: 0;
+    animation: fadeUp 0.8s forwards;
+  }
+
+  .animate-fade-up[style] {
+    animation-delay: var(--delay, 0ms);
+  }
+</style>
