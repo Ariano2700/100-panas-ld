@@ -1,10 +1,12 @@
 ---
 import Image from "astro/components/Image.astro";
-import LucideShoppingCart from "../../assets/icons/lucide/LucideShoppingCart.astro";
-import OcticonThreeBars16 from "../../assets/icons/octicon/OcticonThreeBars16.astro";
-import MiClose from "../../assets/icons/mono_icons/MiClose.astro";
-import type { NavItemInterface } from "../../interfaces/NavItemInterface";
-const { navItems, cartItems } = Astro.props;
+import OcticonThreeBars16 from "../../../assets/icons/octicon/OcticonThreeBars16.astro";
+import MiClose from "../../../assets/icons/mono_icons/MiClose.astro";
+import type { NavItemInterface } from "../../../interfaces/NavItemInterface";
+import ShoppingCartMobile from "./shopping/ShoppingCartMobile";
+import ShoppingCartButton from "./shopping/ShoppingCartButton";
+
+const { navItems } = Astro.props;
 ---
 
 <header
@@ -33,6 +35,7 @@ const { navItems, cartItems } = Astro.props;
         100% <span class="text-[#E56053]">PANAS</span>
       </span>
     </button>
+    <ShoppingCartButton client:load />
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
@@ -104,13 +107,7 @@ const { navItems, cartItems } = Astro.props;
 
       <!-- Mobile Cart Section -->
       <div class="mt-auto pt-6 border-t border-gray-200">
-        <button
-          class="w-full bg-[#E56053] hover:bg-[#E56053]/80 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-3"
-          type="button"
-        >
-          <LucideShoppingCart />
-          Ver Carrito ({cartItems})
-        </button>
+        <ShoppingCartMobile client:load />
       </div>
     </div>
   </div>
@@ -137,6 +134,10 @@ const { navItems, cartItems } = Astro.props;
         logoText.classList.add("text-gray-900");
         menuBtn.classList.remove("text-white");
         menuBtn.classList.add("text-gray-700");
+        document.querySelectorAll("#cart-btn").forEach((el) => {
+          el.classList.remove("text-white");
+          el.classList.add("text-gray-700");
+        });
       } else {
         header.classList.remove("bg-white/95", "backdrop-blur-md", "shadow-lg");
         header.classList.add("bg-transparent");
@@ -144,6 +145,10 @@ const { navItems, cartItems } = Astro.props;
         logoText.classList.remove("text-gray-900");
         menuBtn.classList.add("text-white");
         menuBtn.classList.remove("text-gray-700");
+        document.querySelectorAll("#cart-btn").forEach((el) => {
+          el.classList.add("text-white");
+          el.classList.remove("text-gray-700");
+        });
       }
     }
     window.addEventListener("scroll", handleScroll);

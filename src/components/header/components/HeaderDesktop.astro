@@ -1,8 +1,8 @@
 ---
 import Image from "astro/components/Image.astro";
-import LucideShoppingCart from "../../assets/icons/lucide/LucideShoppingCart.astro";
-import type { NavItemInterface } from "../../interfaces/NavItemInterface";
-const { navItems, cartItems } = Astro.props;
+import ShoppingCartButton from "./shopping/ShoppingCartButton";
+import type { NavItemInterface } from "../../../interfaces/NavItemInterface";
+const { navItems } = Astro.props;
 ---
 
 <header
@@ -50,20 +50,7 @@ const { navItems, cartItems } = Astro.props;
       </nav>
 
       <!-- Cart Button -->
-      <button
-        class="relative p-2 rounded-full transition-colors text-white hover:text-[#E56053] hover:bg-white/10 cursor-pointer"
-        id="cart-btn"
-        type="button"
-      >
-        <LucideShoppingCart />
-        {
-          cartItems > 0 && (
-            <span class="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center rounded-full bg-[#E56053] text-white text-xs font-medium">
-              {cartItems}
-            </span>
-          )
-        }
-      </button>
+      <ShoppingCartButton client:load />
     </div>
   </div>
   <style>
@@ -90,8 +77,10 @@ const { navItems, cartItems } = Astro.props;
           btn.classList.remove("text-white");
           btn.classList.add("text-gray-700");
         });
-        document.getElementById("cart-btn").classList.remove("text-white");
-        document.getElementById("cart-btn").classList.add("text-gray-700");
+        document.querySelectorAll("#cart-btn").forEach((el) => {
+          el.classList.remove("text-white");
+          el.classList.add("text-gray-700");
+        });
       } else {
         header.classList.remove("bg-white/95", "backdrop-blur-md", "shadow-lg");
         header.classList.add("bg-transparent");
@@ -101,8 +90,10 @@ const { navItems, cartItems } = Astro.props;
           btn.classList.add("text-white");
           btn.classList.remove("text-gray-700");
         });
-        document.getElementById("cart-btn").classList.add("text-white");
-        document.getElementById("cart-btn").classList.remove("text-gray-700");
+        document.querySelectorAll("#cart-btn").forEach((el) => {
+          el.classList.remove("text-white");
+          el.classList.add("text-gray-700");
+        });
       }
     };
     window.addEventListener("scroll", handleScroll);

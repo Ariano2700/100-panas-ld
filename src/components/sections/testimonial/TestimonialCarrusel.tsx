@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { testimonials } from "../../const/testimonials";
+import { testimonials } from "../../../const/testimonials";
 
 export default function TestimonialCarousel() {
   const [current, setCurrent] = useState(0);

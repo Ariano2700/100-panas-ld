@@ -8,6 +8,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de carne con tomate, lechuga, salsas a elegir y papas fritas.",
     price: "S/ 10.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -17,6 +18,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de carne con tomate, lechuga, huevo, salsas a elegir y papas fritas.",
     price: "S/ 11.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -26,6 +28,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de carne con tomate, lechuga, jamón, queso, salsas a elegir y papas fritas.",
     price: "S/ 11.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -35,6 +38,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de carne con tomate, lechuga, huevo, plátano, salsas a elegir y papas fritas.",
     price: "S/ 13.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -44,6 +48,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de carne con tomate, lechuga, huevo, tocino, salsas a elegir y papas fritas.",
     price: "S/ 13.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -53,6 +58,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de carne con tomate, lechuga, jamón, piña, salsas a elegir y papas fritas.",
     price: "S/ 13.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -61,6 +67,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description: "Hamburguesa doble de carne con tomate, lechuga, chorizo.",
     price: "S/ 14.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -70,6 +77,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de carne con tomate, lechuga, huevo, queso, tocino, chorizo, salsas a elegir y papas fritas.",
     price: "S/ 18.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: true,
   },
   {
@@ -79,6 +87,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Hamburguesa de pollo a la plancha con tomate, lechuga, salsas a elegir y papas fritas.",
     price: "S/ 11.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
   {
@@ -88,6 +97,7 @@ export const burgersMenu: MenuItemInterface[] = [
       "Sandwich con chorizo, tomate, lechuga, salsas a elegir y papas fritas.",
     price: "S/ 9.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Hamburgesas" },
     featured: false,
   },
 ];
@@ -99,6 +109,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     description: "Papas fritas con hot dog en rodajas y salsas a elegir.",
     price: "S/ 13.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Salchipapas" },
     featured: false,
   },
   {
@@ -108,6 +119,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
       "Papas fritas con hot dog en rodajas, pollo a la plancha y salsas a elegir.",
     price: "S/ 18.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Salchipapas" },
     featured: false,
   },
   {
@@ -116,6 +128,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     description: "Papas fritas con chorizo en rodajas y salsas a elegir.",
     price: "S/ 15.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Salchipapas" },
     featured: false,
   },
   {
@@ -125,6 +138,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
       "Papas fritas con chorizo en rodajas, pollo a la plancha y salsas a elegir.",
     price: "S/ 20.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Salchipapas" },
     featured: false,
   },
   {
@@ -133,6 +147,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     description: "Papas fritas y pollo a la plancha con salsas a elegir.",
     price: "S/ 19.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Salchipapas" },
     featured: false,
   },
   // {
@@ -152,6 +167,7 @@ export const additionalMenu: MenuItemInterface[] = [
     description: "Porción de papas fritas.",
     price: "S/ 9.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Adicionales" },
     featured: false,
   },
   {
@@ -160,6 +176,7 @@ export const additionalMenu: MenuItemInterface[] = [
     description: "Delicioso arroz chaufa como acompañamiento.",
     price: "S/ 10.00",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Adicionales" },
     featured: false,
   },
   {
@@ -168,6 +185,7 @@ export const additionalMenu: MenuItemInterface[] = [
     description: "Añade un huevo a tu hamburguesa.",
     price: "S/ 1.50",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Adicionales" },
     featured: false,
   },
   {
@@ -176,6 +194,7 @@ export const additionalMenu: MenuItemInterface[] = [
     description: "Añade plátano frito a tu hamburguesa.",
     price: "S/ 1.50",
     image: "/placeholder.svg?height=200&width=300",
+    category: { name: "Adicionales" },
     featured: false,
   },
 ];

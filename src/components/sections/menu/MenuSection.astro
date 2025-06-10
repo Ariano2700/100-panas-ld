@@ -1,0 +1,104 @@
+---
+import {
+  additionalMenu,
+  burgersMenu,
+  salchipapaMenu,
+} from "../../../const/menu";
+import MenuCard from "./components/MenuCard.astro";
+
+const tabs = [
+  { id: "hamburguesas", label: "Hamburguesas", data: burgersMenu },
+  { id: "combos", label: "Combos", data: salchipapaMenu },
+  { id: "adicionales", label: "Adicionales", data: additionalMenu },
+];
+
+// El tab activo por defecto
+const defaultTab = tabs[0].id;
+---
+
+<section id="menu" class="py-12 sm:py-16 bg-white">
+  <div class="container mx-auto px-2 sm:px-4 md:px-6">
+    <div
+      class="flex flex-col items-center justify-center mb-8 sm:mb-12 text-center"
+    >
+      <span
+        class="mb-4 bg-[#E56053] text-white text-xs sm:text-sm font-medium px-3 py-1 rounded-full"
+      >
+        Nuestro Menú
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight md:text-5xl">
+        Deliciosas Opciones Para Todos
+      </h2>
+      <p class="mt-3 sm:mt-4 text-gray-600 text-base sm:text-lg md:text-xl">
+        Disfruta de nuestras hamburguesas preparadas con ingredientes frescos y
+        de calidad
+      </p>
+    </div>
+
+    <div class="w-full mb-6 sm:mb-8" id="menu-tabs">
+      <div
+        class="flex flex-col gap-2 sm:grid sm:grid-cols-3 bg-gray-100 rounded-lg p-1 mb-6 sm:mb-8"
+      >
+        {
+          tabs.map((tab) => (
+            <button
+              type="button"
+              class={`py-2 px-4 rounded-md font-medium transition-all duration-200 tab-btn w-full cursor-pointer ${
+                tab.id === defaultTab
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+              data-tab={tab.id}
+            >
+              {tab.label}
+            </button>
+          ))
+        }
+      </div>
+
+      {/* Menu Items */}
+      {
+        tabs.map((tab) => (
+          <div
+            class={`tab-content ${tab.id === defaultTab ? "" : "hidden"}`}
+            id={`tab-content-${tab.id}`}
+          >
+            <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              {tab.data.map((item) => (
+                <MenuCard
+                  id={item.id}
+                  name={item.name}
+                  description={item.description}
+                  price={item.price}
+                  image={item.image}
+                  category={item.category}
+                  featured={item.featured}
+                />
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <script type="module" is:inline>
+    const tabBtns = document.querySelectorAll("#menu-tabs .tab-btn");
+    const tabContents = document.querySelectorAll("#menu-tabs .tab-content");
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const tabId = btn.getAttribute("data-tab");
+        tabBtns.forEach((b) =>
+          b.classList.remove("bg-white", "text-gray-900", "shadow-sm")
+        );
+        btn.classList.add("bg-white", "text-gray-900", "shadow-sm");
+        tabContents.forEach((content) => {
+          if (content.id === `tab-content-${tabId}`) {
+            content.classList.remove("hidden");
+          } else {
+            content.classList.add("hidden");
+          }
+        });
+      });
+    });
+  </script>
+</section>

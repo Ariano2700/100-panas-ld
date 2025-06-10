@@ -1,10 +1,12 @@
 ---
 import { navItems } from "../../const/navItems";
-import HeaderDesktop from "./HeaderDesktop.astro";
-import HeaderMobile from "./HeaderMobile.astro";
-
-const cartItems = 2; // Puedes cambiar esto si tienes lógica de carrito
+import HeaderDesktop from "./components/HeaderDesktop.astro";
+import HeaderMobile from "./components/HeaderMobile.astro";
 ---
 
-<HeaderDesktop navItems={navItems} cartItems={cartItems} />
-<HeaderMobile navItems={navItems} cartItems={cartItems} />
+<div class="hidden md:block">
+  <HeaderDesktop navItems={navItems} />
+</div>
+<div class="block md:hidden">
+  <HeaderMobile navItems={navItems} />
+</div>
