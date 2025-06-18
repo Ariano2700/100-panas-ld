@@ -37,7 +37,7 @@ function AddItemCartButton({
     <button
       onClick={handleAddToCart}
       disabled={isAdding || added}
-      className={`border border-[#E56053] text-[#E56053] hover:bg-[#E56053] hover:text-white px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+      className={`border border-[#007AB5] text-[#007AB5] hover:bg-[#007AB5] hover:text-white px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
         (isAdding || added) ? "opacity-50 cursor-not-allowed" : ""
       }`}
     >

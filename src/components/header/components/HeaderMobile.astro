@@ -21,18 +21,18 @@ const { navItems } = Astro.props;
       type="button"
     >
       <Image
-        src="/100panas_logo.webp"
+        src="/las_meches/las meches logo.png"
         alt="100% PANAS Logo"
         width="40"
         height="40"
-        class="w-8 h-8"
+        class="w-8 h-8 rounded-full"
         loading="eager"
       />
       <span
         id="logo-text-mobile"
         class="font-bold text-lg transition-colors text-white"
       >
-        100% <span class="text-[#E56053]">PANAS</span>
+        LAS <span class="text-[#007AB5]">MECHES</span>
       </span>
     </button>
     <ShoppingCartButton client:load />
@@ -107,7 +107,7 @@ const { navItems } = Astro.props;
 
       <!-- Mobile Cart Section -->
       <div class="mt-auto pt-6 border-t border-gray-200">
-        <ShoppingCartMobile client:load />
+        <ShoppingCartMobile client:only="react" />
       </div>
     </div>
   </div>

@@ -1,19 +1,9 @@
 ---
-import {
-  additionalMenu,
-  burgersMenu,
-  salchipapaMenu,
-} from "../../../const/menu";
+import { menu_sections } from "../../../const/menu_sections";
 import MenuCard from "./components/MenuCard.astro";
 
-const tabs = [
-  { id: "hamburguesas", label: "Hamburguesas", data: burgersMenu },
-  { id: "combos", label: "Combos", data: salchipapaMenu },
-  { id: "adicionales", label: "Adicionales", data: additionalMenu },
-];
-
 // El tab activo por defecto
-const defaultTab = tabs[0].id;
+const defaultTab = menu_sections[0].id;
 ---
 
 <section id="menu" class="py-12 sm:py-16 bg-white">
@@ -22,7 +12,7 @@ const defaultTab = tabs[0].id;
       class="flex flex-col items-center justify-center mb-8 sm:mb-12 text-center"
     >
       <span
-        class="mb-4 bg-[#E56053] text-white text-xs sm:text-sm font-medium px-3 py-1 rounded-full"
+        class="mb-4 bg-[#007AB5] text-white text-xs sm:text-sm font-medium px-3 py-1 rounded-full"
       >
         Nuestro Menú
       </span>
@@ -30,27 +20,27 @@ const defaultTab = tabs[0].id;
         Deliciosas Opciones Para Todos
       </h2>
       <p class="mt-3 sm:mt-4 text-gray-600 text-base sm:text-lg md:text-xl">
-        Disfruta de nuestras hamburguesas preparadas con ingredientes frescos y
-        de calidad
+        Desde un buen ceviche hasta unas alitas picantes, aquí encuentras lo
+        mejor de la cocina piurana y más.
       </p>
     </div>
 
-    <div class="w-full mb-6 sm:mb-8" id="menu-tabs">
+    <div class="w-full mb-6 sm:mb-8" id="menu-sections-tabs">
       <div
         class="flex flex-col gap-2 sm:grid sm:grid-cols-3 bg-gray-100 rounded-lg p-1 mb-6 sm:mb-8"
       >
         {
-          tabs.map((tab) => (
+          menu_sections.map((section) => (
             <button
               type="button"
               class={`py-2 px-4 rounded-md font-medium transition-all duration-200 tab-btn w-full cursor-pointer ${
-                tab.id === defaultTab
+                section.id === defaultTab
                   ? "bg-white text-gray-900 shadow-sm"
                   : "text-gray-600 hover:text-gray-900"
               }`}
-              data-tab={tab.id}
+              data-tab={section.id}
             >
-              {tab.label}
+              {section.label}
             </button>
           ))
         }
@@ -58,13 +48,13 @@ const defaultTab = tabs[0].id;
 
       {/* Menu Items */}
       {
-        tabs.map((tab) => (
+        menu_sections.map((section) => (
           <div
-            class={`tab-content ${tab.id === defaultTab ? "" : "hidden"}`}
-            id={`tab-content-${tab.id}`}
+            class={`tab-content ${section.id === defaultTab ? "" : "hidden"}`}
+            id={`tab-content-${section.id}`}
           >
             <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-              {tab.data.map((item) => (
+              {section.data.map((item) => (
                 <MenuCard
                   id={item.id}
                   name={item.name}
