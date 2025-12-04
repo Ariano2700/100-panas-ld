@@ -87,7 +87,7 @@ export default function TestimonialCarousel() {
             </div>
           </div>
           <div className="flex justify-center mt-6 gap-2">
-            <button
+            {/* <button
               onClick={prev}
               onMouseEnter={() => setAutoplay(false)}
               onMouseLeave={() => setAutoplay(true)}
@@ -106,7 +106,7 @@ export default function TestimonialCarousel() {
                   d="M15 19l-7-7 7-7"
                 />
               </svg>
-            </button>
+            </button> */}
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -115,12 +115,12 @@ export default function TestimonialCarousel() {
                   setAutoplay(false);
                 }}
                 onMouseLeave={() => setAutoplay(true)}
-                className={`w-3 h-3 rounded-full transition-colors ${
+                className={`w-3 h-3 rounded-full cursor-pointer transition-colors ${
                   index === current ? "bg-[#E56053]" : "bg-gray-300"
                 }`}
               />
             ))}
-            <button
+            {/* <button
               onClick={next}
               onMouseEnter={() => setAutoplay(false)}
               onMouseLeave={() => setAutoplay(true)}
@@ -139,7 +139,7 @@ export default function TestimonialCarousel() {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

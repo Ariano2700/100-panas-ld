@@ -74,10 +74,10 @@ export default function ShoppingCart() {
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-gray-200 p-4">
-          <h2 className="text-lg font-bold">Carrito de Compras</h2>
+          <h2 className="text-lg text-black font-bold">Carrito de Compras</h2>
           <button
             onClick={closeCart}
-            className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            className="p-2 rounded-full text-black cursor-pointer hover:bg-gray-100 transition-colors"
           >
             <MiClose className="h-5 w-5" />
           </button>
@@ -141,19 +141,19 @@ export default function ShoppingCart() {
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="p-1 rounded-full hover:bg-gray-200 transition-colors"
+                      className="p-1 rounded-full hover:bg-gray-200 transition-colors text-black cursor-pointer"
                       disabled={item.quantity <= 1}
                     >
                       <LucideMinus className="h-3 w-3" />
                     </button>
 
-                    <span className="w-8 text-center font-medium">
+                    <span className="w-8 text-center font-medium text-black">
                       {item.quantity}
                     </span>
 
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="p-1 rounded-full hover:bg-gray-200 transition-colors"
+                      className="p-1 rounded-full hover:bg-gray-200 transition-colors text-black cursor-pointer"
                     >
                       <LucidePlus className="h-3 w-3" />
                     </button>
@@ -162,7 +162,7 @@ export default function ShoppingCart() {
                   {/* Remove Button */}
                   <button
                     onClick={() => removeItem(item.id)}
-                    className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors"
+                    className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors cursor-pointer"
                   >
                     <GgTrash className="h-4 w-4" />
                   </button>
