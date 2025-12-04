@@ -71,7 +71,7 @@ export const handleProceedToPayment = ({
     `Método: ${methodText}`,
   ].join("\n");
 
-  const phoneNumber = "51944561736";
+  const phoneNumber = "51933647959";
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
