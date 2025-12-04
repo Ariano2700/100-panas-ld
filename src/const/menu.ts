@@ -1,5 +1,31 @@
-import type { MenuItemInterface } from "../interfaces/MenuItemInterface";
+import type {
+  MenuItemInterface,
+  SaucesMenu,
+} from "../interfaces/MenuItemInterface";
 
+export const saucesMenu: SaucesMenu[] = [
+  {
+    id: 1,
+    name: "Mayonesa",
+  },
+  {
+    id: 2,
+    name: "Ketchup",
+  },
+  { id: 3, name: "Tartara" },
+  {
+    id: 4,
+    name: "Mostaza",
+  },
+  {
+    id: 5,
+    name: "Aceituna",
+  },
+  {
+    id: 6,
+    name: "Ajo",
+  },
+];
 export const burgersMenu: MenuItemInterface[] = [
   {
     id: 1,
@@ -7,7 +33,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de carne con tomate, lechuga, salsas a elegir y papas fritas.",
     price: "S/ 10.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -17,7 +43,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de carne con tomate, lechuga, huevo, salsas a elegir y papas fritas.",
     price: "S/ 11.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -27,7 +53,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de carne con tomate, lechuga, jamón, queso, salsas a elegir y papas fritas.",
     price: "S/ 11.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -37,7 +63,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de carne con tomate, lechuga, huevo, plátano, salsas a elegir y papas fritas.",
     price: "S/ 13.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -47,7 +73,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de carne con tomate, lechuga, huevo, tocino, salsas a elegir y papas fritas.",
     price: "S/ 13.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -57,7 +83,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de carne con tomate, lechuga, jamón, piña, salsas a elegir y papas fritas.",
     price: "S/ 13.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -66,7 +92,7 @@ export const burgersMenu: MenuItemInterface[] = [
     name: "Doble",
     description: "Hamburguesa doble de carne con tomate, lechuga, chorizo.",
     price: "S/ 14.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -76,7 +102,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de carne con tomate, lechuga, huevo, queso, tocino, chorizo, salsas a elegir y papas fritas.",
     price: "S/ 18.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: true,
   },
@@ -86,7 +112,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Hamburguesa de pollo a la plancha con tomate, lechuga, salsas a elegir y papas fritas.",
     price: "S/ 11.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -96,7 +122,7 @@ export const burgersMenu: MenuItemInterface[] = [
     description:
       "Sandwich con chorizo, tomate, lechuga, salsas a elegir y papas fritas.",
     price: "S/ 9.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Hamburgesas" },
     featured: false,
   },
@@ -108,7 +134,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     name: "Salchipapa",
     description: "Papas fritas con hot dog en rodajas y salsas a elegir.",
     price: "S/ 13.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Salchipapas" },
     featured: false,
   },
@@ -118,7 +144,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     description:
       "Papas fritas con hot dog en rodajas, pollo a la plancha y salsas a elegir.",
     price: "S/ 18.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Salchipapas" },
     featured: false,
   },
@@ -127,7 +153,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     name: "Choripapas",
     description: "Papas fritas con chorizo en rodajas y salsas a elegir.",
     price: "S/ 15.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Salchipapas" },
     featured: false,
   },
@@ -137,7 +163,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     description:
       "Papas fritas con chorizo en rodajas, pollo a la plancha y salsas a elegir.",
     price: "S/ 20.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Salchipapas" },
     featured: false,
   },
@@ -146,7 +172,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     name: "Pollipapa",
     description: "Papas fritas y pollo a la plancha con salsas a elegir.",
     price: "S/ 19.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Salchipapas" },
     featured: false,
   },
@@ -155,7 +181,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
   //   name: "Mostrito",
   //   description: "Combina arroz chaufa, papas fritas y una porción de broaster.",
   //   price: "S/ 18.00",
-  //   image: "/placeholder.svg?height=200&width=300",
+  //   image: "/placeholder.webp",
   //   featured: true,
   // },
 ];
@@ -166,7 +192,7 @@ export const additionalMenu: MenuItemInterface[] = [
     name: "Papas Fritas",
     description: "Porción de papas fritas.",
     price: "S/ 9.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Adicionales" },
     featured: false,
   },
@@ -175,7 +201,7 @@ export const additionalMenu: MenuItemInterface[] = [
     name: "Porción de Arroz Chaufa",
     description: "Delicioso arroz chaufa como acompañamiento.",
     price: "S/ 10.00",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Adicionales" },
     featured: false,
   },
@@ -184,7 +210,7 @@ export const additionalMenu: MenuItemInterface[] = [
     name: "Adicional de huevo",
     description: "Añade un huevo a tu hamburguesa.",
     price: "S/ 1.50",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Adicionales" },
     featured: false,
   },
@@ -193,8 +219,38 @@ export const additionalMenu: MenuItemInterface[] = [
     name: "Adicional de plátano frito",
     description: "Añade plátano frito a tu hamburguesa.",
     price: "S/ 1.50",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.webp",
     category: { name: "Adicionales" },
+    featured: false,
+  },
+];
+
+export const drinksMenu: MenuItemInterface[] = [
+  {
+    id: 1,
+    name: "Concordia Sabor Piña",
+    description: "Gaseosa Concordia Sabor Piña Botella 500 mL",
+    category: { name: "Bebidas" },
+    image: "/placeholder.webp",
+    price: "S/ 4.00",
+    featured: false,
+  },
+  {
+    id: 2,
+    name: "Concordia Sabor Fresa",
+    description: "Gaseosa Concordia Sabor Fresa Botella 500 mL",
+    category: { name: "Bebidas" },
+    image: "/placeholder.webp",
+    price: "S/ 4.00",
+    featured: false,
+  },
+  {
+    id: 3,
+    name: "Pepsi",
+    description: "Gaseosa Pepsi Botella 355 mL",
+    category: { name: "Bebidas" },
+    image: "/placeholder.webp",
+    price: "S/ 4.00",
     featured: false,
   },
 ];

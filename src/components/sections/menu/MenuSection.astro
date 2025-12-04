@@ -72,8 +72,8 @@ const defaultTab = menu_sections[0].id;
     </div>
   </div>
   <script type="module" is:inline>
-    const tabBtns = document.querySelectorAll("#menu-tabs .tab-btn");
-    const tabContents = document.querySelectorAll("#menu-tabs .tab-content");
+    const tabBtns = document.querySelectorAll("#menu-sections-tabs .tab-btn");
+    const tabContents = document.querySelectorAll("#menu-sections-tabs .tab-content");
     tabBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const tabId = btn.getAttribute("data-tab");

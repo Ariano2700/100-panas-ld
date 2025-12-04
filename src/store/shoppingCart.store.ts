@@ -1,14 +1,17 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { CategoryInterface } from "../interfaces/MenuItemInterface";
+import type { CategoryInterface, ProductCustomization } from "../interfaces/MenuItemInterface";
+import { getExtraPrice } from "../lib/getExtraPrice";
 
 export interface ShoppingCartItem {
   id: number;
+  cartItemId: string; // ID único para el carrito (combina id + timestamp)
   name: string;
   price: string;
   image: string;
   quantity: number;
   category: CategoryInterface;
+  customization?: ProductCustomization;
 }
 
 interface ShoppingCartStore {
@@ -16,9 +19,9 @@ interface ShoppingCartStore {
   isOpen: boolean;
 
   // Actions
-  addItem: (item: Omit<ShoppingCartItem, "quantity">) => void;
-  removeItem: (id: number) => void;
-  updateQuantity: (id: number, quantity: number) => void;
+  addItem: (item: Omit<ShoppingCartItem, "quantity" | "cartItemId">) => void;
+  removeItem: (cartItemId: string) => void;
+  updateQuantity: (cartItemId: string, quantity: number) => void;
   clearCart: () => void;
   toggleCart: () => void;
   openCart: () => void;
@@ -37,38 +40,48 @@ export const useCartStore = create<ShoppingCartStore>()(
 
       addItem: (item) => {
         const { items } = get();
-        const existingItem = items.find((cartItem) => cartItem.id === item.id);
-
-        if (existingItem) {
+        // Siempre agregar como item nuevo cuando tiene personalización
+        // o si no existe en el carrito
+        if (item.customization) {
+          const cartItemId = `${item.id}-${Date.now()}-${Math.random()}`;
           set({
-            items: items.map((cartItem) =>
-              cartItem.id === item.id
-                ? { ...cartItem, quantity: cartItem.quantity + 1 }
-                : cartItem
-            ),
+            items: [...items, { ...item, cartItemId, quantity: 1 }],
           });
         } else {
-          set({
-            items: [...items, { ...item, quantity: 1 }],
-          });
+          const existingItem = items.find((cartItem) => cartItem.id === item.id && !cartItem.customization);
+
+          if (existingItem) {
+            set({
+              items: items.map((cartItem) =>
+                cartItem.id === item.id && !cartItem.customization
+                  ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                  : cartItem
+              ),
+            });
+          } else {
+            const cartItemId = `${item.id}-${Date.now()}`;
+            set({
+              items: [...items, { ...item, cartItemId, quantity: 1 }],
+            });
+          }
         }
       },
 
-      removeItem: (id) => {
+      removeItem: (cartItemId) => {
         set((state) => ({
-          items: state.items.filter((item) => item.id !== id),
+          items: state.items.filter((item) => item.cartItemId !== cartItemId),
         }));
       },
 
-      updateQuantity: (id, quantity) => {
+      updateQuantity: (cartItemId, quantity) => {
         if (quantity <= 0) {
-          get().removeItem(id);
+          get().removeItem(cartItemId);
           return;
         }
 
         set((state) => ({
           items: state.items.map((item) =>
-            item.id === id ? { ...item, quantity } : item
+            item.cartItemId === cartItemId ? { ...item, quantity } : item
           ),
         }));
       },
@@ -97,8 +110,19 @@ export const useCartStore = create<ShoppingCartStore>()(
       getTotalPrice: () => {
         const { items } = get();
         return items.reduce((total, item) => {
-          const price = Number.parseFloat(item.price.replace("S/ ", ""));
-          return total + price * item.quantity;
+          const basePrice = Number.parseFloat(item.price.replace("S/ ", ""));
+          let itemTotal = basePrice * item.quantity;
+          
+          // Sumar precios de extras si existen
+          if (item.customization?.extras && item.customization.extras.length > 0) {
+            const extrasPrice = item.customization.extras.reduce((extrasTotal, extra) => {
+              return extrasTotal + getExtraPrice(extra.name);
+            }, 0);
+            
+            itemTotal += extrasPrice * item.quantity;
+          }
+          
+          return total + itemTotal;
         }, 0);
       },
     }),
@@ -107,6 +131,22 @@ export const useCartStore = create<ShoppingCartStore>()(
       partialize: (state) => ({
         items: state.items,
       }),
+      version: 1,
+      migrate: (persistedState: any, version: number) => {
+        // Migrar items antiguos sin cartItemId
+        if (version === 0 && persistedState?.items) {
+          persistedState.items = persistedState.items.map((item: any, index: number) => {
+            if (!item.cartItemId) {
+              return {
+                ...item,
+                cartItemId: `${item.id}-migrated-${index}-${Date.now()}`,
+              };
+            }
+            return item;
+          });
+        }
+        return persistedState;
+      },
     }
   )
 );

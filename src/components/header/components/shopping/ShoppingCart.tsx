@@ -113,59 +113,112 @@ export default function ShoppingCart() {
             <div className="space-y-4">
               {items.map((item) => (
                 <div
-                  key={item.id}
-                  className="flex items-center space-x-4 bg-gray-50 rounded-lg p-3"
+                  key={item.cartItemId}
+                  className="bg-gray-50 rounded-lg p-3"
                 >
-                  {/* Product Image */}
-                  <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                    <img
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.name}
-                      className="object-cover"
-                      loading="lazy"
-                    />
-                  </div>
+                  <div className="flex items-start space-x-4">
+                    {/* Product Image */}
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    </div>
 
-                  {/* Product Info */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-gray-900 truncate">
-                      {item.name}
-                    </h3>
-                    <p className="text-sm text-gray-500 capitalize">
-                      {item.category.name}
-                    </p>
-                    <p className="font-bold text-[#E56053]">{item.price}</p>
-                  </div>
+                    {/* Product Info */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-medium text-gray-900 truncate">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm text-gray-500 capitalize">
+                        {item.category.name}
+                      </p>
+                      <p className="font-bold text-[#E56053]">{item.price}</p>
 
-                  {/* Quantity Controls */}
-                  <div className="flex items-center space-x-2">
+                      {/* Customizations */}
+                      {item.customization && (
+                        <div className="mt-2 pt-2 border-t border-gray-200">
+                          {/* Sauces */}
+                          {item.customization.sauces &&
+                            item.customization.sauces.length > 0 && (
+                              <div className="mb-1">
+                                <span className="text-xs font-medium text-gray-700">
+                                  Salsas:{" "}
+                                </span>
+                                <span className="text-xs text-gray-600">
+                                  {item.customization.sauces.join(", ")}
+                                </span>
+                              </div>
+                            )}
+
+                          {/* Potato Type */}
+                          {item.customization.potatoType && (
+                            <div className="mb-1">
+                              <span className="text-xs font-medium text-gray-700">
+                                Papas:{" "}
+                              </span>
+                              <span className="text-xs text-gray-600">
+                                {item.customization.potatoType === "fritas"
+                                  ? "Fritas"
+                                  : "Al Hilo"}
+                              </span>
+                            </div>
+                          )}
+
+                          {/* Extras */}
+                          {item.customization.extras &&
+                            item.customization.extras.length > 0 && (
+                              <div>
+                                <span className="text-xs font-medium text-gray-700">
+                                  Extras:{" "}
+                                </span>
+                                <span className="text-xs text-gray-600">
+                                  {item.customization.extras
+                                    .map((extra) => `${extra.name} (${extra.price})`)
+                                    .join(", ")}
+                                </span>
+                              </div>
+                            )}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Quantity Controls */}
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() =>
+                          updateQuantity(item.cartItemId, item.quantity - 1)
+                        }
+                        className="p-1 rounded-full hover:bg-gray-200 transition-colors text-black cursor-pointer"
+                        disabled={item.quantity <= 1}
+                      >
+                        <LucideMinus className="h-3 w-3" />
+                      </button>
+
+                      <span className="w-8 text-center font-medium text-black">
+                        {item.quantity}
+                      </span>
+
+                      <button
+                        onClick={() =>
+                          updateQuantity(item.cartItemId, item.quantity + 1)
+                        }
+                        className="p-1 rounded-full hover:bg-gray-200 transition-colors text-black cursor-pointer"
+                      >
+                        <LucidePlus className="h-3 w-3" />
+                      </button>
+                    </div>
+
+                    {/* Remove Button */}
                     <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="p-1 rounded-full hover:bg-gray-200 transition-colors text-black cursor-pointer"
-                      disabled={item.quantity <= 1}
+                      onClick={() => removeItem(item.cartItemId)}
+                      className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors cursor-pointer"
                     >
-                      <LucideMinus className="h-3 w-3" />
-                    </button>
-
-                    <span className="w-8 text-center font-medium text-black">
-                      {item.quantity}
-                    </span>
-
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="p-1 rounded-full hover:bg-gray-200 transition-colors text-black cursor-pointer"
-                    >
-                      <LucidePlus className="h-3 w-3" />
+                      <GgTrash className="h-4 w-4" />
                     </button>
                   </div>
-
-                  {/* Remove Button */}
-                  <button
-                    onClick={() => removeItem(item.id)}
-                    className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors cursor-pointer"
-                  >
-                    <GgTrash className="h-4 w-4" />
-                  </button>
                 </div>
               ))}
             </div>
@@ -212,7 +265,7 @@ export default function ShoppingCart() {
                 }}
                 className="w-full bg-[#E56053] hover:bg-[#E56053]/80 text-white font-medium py-3 px-4 rounded-lg transition-colors cursor-pointer flex items-center justify-center gap-3 space-x-2"
               >
-                Proceder al Pago <UilWhatsapp className="text-xl" />
+                Proceder al pedido <UilWhatsapp className="text-xl" />
               </button>
 
               <button

@@ -11,3 +11,28 @@ export interface MenuItemInterface {
 export interface CategoryInterface {
   name: "Hamburgesas" | "Salchipapas" | "Combos" | "Bebidas" | "Adicionales";
 }
+
+export type SaucesMenu = {
+  id: number;
+  name: string;
+}
+
+export type ProductCustomizationExtras = {
+  name: string;
+  price: string;
+}
+
+export interface ProductCustomization {
+  sauces: string[];
+  potatoType?: "fritas" | "al-hilo";
+  extras: ProductCustomizationExtras[];
+}
+
+export interface CartItemWithCustomization {
+  id: number;
+  name: string;
+  price: string;
+  image: string;
+  category: CategoryInterface;
+  customization?: ProductCustomization;
+}

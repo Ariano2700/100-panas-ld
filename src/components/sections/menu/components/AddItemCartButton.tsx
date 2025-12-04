@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { MenuItemInterface } from "../../../../interfaces/MenuItemInterface";
+import ProductModal from "./ProductModal";
 import { useCartStore } from "../../../../store/shoppingCart.store";
 
 function AddItemCartButton({
@@ -8,45 +9,75 @@ function AddItemCartButton({
   image,
   name,
   price,
+  description,
+  featured,
 }: MenuItemInterface) {
   const { addItem } = useCartStore();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [added, setAdded] = useState<boolean>(false);
 
-  const handleAddToCart = async () => {
-    setIsAdding(true);
-    setAdded(false);
+  const product: MenuItemInterface = {
+    id,
+    name,
+    price,
+    image,
+    category,
+    description,
+    featured,
+  };
 
-    await new Promise((resolve) => setTimeout(resolve, 300));
+  const handleClick = async () => {
+    // Si es bebida o adicional, agregar directamente sin modal
+    if (product.category.name === "Bebidas" || product.category.name === "Adicionales") {
+      setIsAdding(true);
+      setAdded(false);
 
-    addItem({
-      id,
-      name,
-      price,
-      image,
-      category,
-    });
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
-    setIsAdding(false);
-    setAdded(true);
+      addItem({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        category: product.category,
+      });
 
-    setTimeout(() => setAdded(false), 1000); // "Agregado" por 1 segundo
+      setIsAdding(false);
+      setAdded(true);
+
+      setTimeout(() => setAdded(false), 1000);
+    } else {
+      // Para hamburguesas y salchipapas, abrir modal
+      setIsModalOpen(true);
+    }
   };
 
   return (
-    <button
-      onClick={handleAddToCart}
-      disabled={isAdding || added}
-      className={`border border-[#E56053] text-[#E56053] hover:bg-[#E56053] hover:text-white px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
-        (isAdding || added) ? "opacity-50 cursor-not-allowed" : ""
-      }`}
-    >
-      {isAdding
-        ? "Agregando..."
-        : added
-        ? "Agregado"
-        : "Ordenar"}
-    </button>
+    <>
+      <button
+        onClick={handleClick}
+        disabled={isAdding || added}
+        className={`border border-[#E56053] text-[#E56053] hover:bg-[#E56053] hover:text-white px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+          (isAdding || added) ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+      >
+        {isAdding
+          ? "Agregando..."
+          : added
+          ? "Agregado"
+          : "Ordenar"}
+      </button>
+      
+      {/* Solo mostrar modal para categorías con personalización */}
+      {product.category.name !== "Bebidas" && product.category.name !== "Adicionales" && (
+        <ProductModal
+          product={product}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+    </>
   );
 }
 export default AddItemCartButton;
