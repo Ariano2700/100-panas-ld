@@ -133,7 +133,7 @@ export default function ShoppingCart() {
                         {item.name}
                       </h3>
                       <p className="text-sm text-gray-500 capitalize">
-                        {item.category.name}
+                        {item.category}
                       </p>
                       <p className="font-bold text-[#E56053]">{item.price}</p>
 

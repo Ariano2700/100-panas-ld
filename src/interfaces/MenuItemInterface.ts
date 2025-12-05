@@ -8,9 +8,14 @@ export interface MenuItemInterface {
   featured?: boolean;
 }
 
-export interface CategoryInterface {
-  name: "Hamburgesas" | "Salchipapas" | "Combos" | "Bebidas" | "Adicionales";
-}
+export type CategoryInterface =
+  | "hamburguesa"
+  | "salchipapa"
+  | "pollo"
+  | "tequeno"
+  | "bebida"
+  | "extra";
+
 
 export type SaucesMenu = {
   id: number;

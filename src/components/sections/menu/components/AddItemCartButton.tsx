@@ -29,7 +29,7 @@ function AddItemCartButton({
 
   const handleClick = async () => {
     // Si es bebida o adicional, agregar directamente sin modal
-    if (product.category.name === "Bebidas" || product.category.name === "Adicionales") {
+    if (product.category === "bebida" || product.category === "extra") {
       setIsAdding(true);
       setAdded(false);
 
@@ -70,7 +70,7 @@ function AddItemCartButton({
       </button>
       
       {/* Solo mostrar modal para categorías con personalización */}
-      {product.category.name !== "Bebidas" && product.category.name !== "Adicionales" && (
+      {product.category !== "bebida" && product.category !== "extra" && (
         <ProductModal
           product={product}
           isOpen={isModalOpen}

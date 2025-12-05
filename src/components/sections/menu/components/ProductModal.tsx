@@ -5,7 +5,7 @@ import type {
   ProductCustomizationExtras,
 } from "../../../../interfaces/MenuItemInterface";
 import { useCartStore } from "../../../../store/shoppingCart.store";
-import { saucesMenu, additionalMenu } from "../../../../const/menu";
+import { extrasMenu, saucesMenu } from "../../../../const/menu";
 import { MiClose } from "../../../../assets/icons/mono_icons/MiClose";
 
 interface ProductModalProps {
@@ -157,7 +157,7 @@ function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
             {/* Column 2: Potato Type & Extras */}
             <div className="space-y-6">
               {/* Potato Type - Solo para hamburguesas */}
-              {product.category.name === "Hamburgesas" && (
+              {product.category === "hamburguesa" && (
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-4">
                     Tipo de Papas
@@ -199,12 +199,7 @@ function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                   Adicionales
                 </h4>
                 <div className="space-y-2">
-                  {additionalMenu
-                    .filter(
-                      (item) =>
-                        item.name.toLowerCase().includes("adicional") ||
-                        item.name.toLowerCase().includes("extra")
-                    )
+                  {extrasMenu
                     .map((extra) => (
                       <label
                         key={extra.id}
