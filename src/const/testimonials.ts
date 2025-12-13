@@ -24,4 +24,18 @@ export const testimonials: TestimonialInterface[] = [
     rating: 5,
     image: "",
   },
+  {
+    id: 4,
+    name: "Hevers Velasquez",
+    text: "Excelente lugar buena comida",
+    rating: 5,
+    image: "",
+  },
+  {
+    id: 5,
+    name: "Ariano Alban",
+    text: "Muy buen lugar para comer, las hamburguesas son deliciosas y las cremas son lo mejor",
+    rating: 5,
+    image: "",
+  }
 ];

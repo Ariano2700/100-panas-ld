@@ -124,7 +124,7 @@ function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
               </h3>
               <p className="text-gray-600 mb-4">{product.description}</p>
               <p className="text-2xl font-bold text-[#E56053]">
-                {product.price}
+                S/{product.price}
               </p>
             </div>
           </div>
@@ -222,7 +222,7 @@ function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                           <span className="text-gray-700">{extra.name}</span>
                         </div>
                         <span className="text-sm text-gray-500">
-                          {extra.price}
+                          S/{extra.price}
                         </span>
                       </label>
                     ))}

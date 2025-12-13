@@ -6,30 +6,61 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es-PE">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://100panasfastfood.com" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="100 Panas" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>100% Panas - Hamburguesas en Piura | Menú, Ubicación y Pedidos</title>
-    <meta name="description" content="Las mejores hamburguesas de Piura. Ingredientes frescos, combos, salchipapas y más. ¡Haz tu pedido online o visítanos en Av. Principal, Piura!" />
-    <meta name="keywords" content="hamburguesas, Piura, comida rápida, menú, delivery, salchipapas, combos, 100% Panas, restaurante, ubicación, pedidos" />
+    <title>
+      100% Panas - Hamburguesas en Piura | Menú, Ubicación y Pedidos
+    </title>
+    <meta
+      name="description"
+      content="Las mejores hamburguesas de Piura. Ingredientes frescos, combos, salchipapas y más. ¡Haz tu pedido online o visítanos en Av. Principal, Piura!"
+    />
     <meta name="author" content="100% Panas" />
+    <meta name="theme-color" content="#E56053" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="100% Panas - Hamburguesas en Piura" />
-    <meta property="og:description" content="Disfruta de hamburguesas, combos y salchipapas en Piura. Ingredientes frescos y atención de calidad. ¡Haz tu pedido ahora!" />
-    <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/100panas-be6tuyIcD5s4Paf0TcK6iw0QiEgU9D.png" />
-    <meta property="og:url" content="https://100panas.com/" />
+    <meta
+      property="og:description"
+      content="Disfruta de hamburguesas, combos y salchipapas en Piura. Ingredientes frescos y atención de calidad. ¡Haz tu pedido ahora!"
+    />
+    <meta
+      property="og:image"
+      content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/100panas-be6tuyIcD5s4Paf0TcK6iw0QiEgU9D.png"
+    />
+    <meta property="og:url" content="https://100panasfastfood.com" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="100% Panas - Hamburguesas en Piura" />
-    <meta name="twitter:description" content="Las mejores hamburguesas, combos y salchipapas en Piura. ¡Visítanos o pide online!" />
-    <meta name="twitter:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/100panas-be6tuyIcD5s4Paf0TcK6iw0QiEgU9D.png" />
+    <meta
+      name="twitter:description"
+      content="Las mejores hamburguesas, combos y salchipapas en Piura. ¡Visítanos o pide online!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/100panas-be6tuyIcD5s4Paf0TcK6iw0QiEgU9D.png"
+    />
 
     <!-- Local Business Schema.org -->
     <script type="application/ld+json">
@@ -38,15 +69,27 @@ import "../styles/global.css";
         "@type": "Restaurant",
         "name": "100% Panas",
         "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/100panas-be6tuyIcD5s4Paf0TcK6iw0QiEgU9D.png",
+        "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/100panas-be6tuyIcD5s4Paf0TcK6iw0QiEgU9D.png",
+        "@id": "https://100panasfastfood.com",
+        "url": "https://100panasfastfood.com",
+        "telephone": "+51933647959",
+        "priceRange": "S/. 10 - S/. 20",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Av. Principal 123",
+          "streetAddress": "Av. Principal",
           "addressLocality": "Piura",
+          "addressRegion": "Piura",
+          "postalCode": "20009",
           "addressCountry": "PE"
         },
-        "telephone": "+51 999 999 999",
-        "servesCuisine": ["Hamburguesas", "Comida rápida", "Salchipapas"],
-        "url": "https://100panas.com/"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -5.1945,
+          "longitude": -80.6328
+        },
+        "servesCuisine": ["Hamburguesas", "Comida Rápida", "Salchipapas", "Peruana"],
+        "acceptsReservations": "False",
+        "hasMenu": "https://100panasfastfood.com/#menu"
       }
     </script>
   </head>
