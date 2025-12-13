@@ -29,13 +29,10 @@ const {
     class={`bg-white rounded-lg shadow-md overflow-hidden h-full ${featured ? "border-2 border-[#E56053]" : "border border-gray-200"}`}
   >
     <div class="relative h-48 bg-gray-200 overflow-hidden">
-      <!-- Skeleton loader con shimmer effect -->
-      <div class="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-shimmer"></div>
-      
       <Image
         src={image}
         alt={name}
-        class="object-cover transition-transform duration-300 w-full h-full relative z-10"
+        class="object-cover transition-transform duration-300 w-full h-full"
         loading="lazy"
         width={375}
         height={190}
