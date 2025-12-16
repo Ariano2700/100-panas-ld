@@ -116,11 +116,19 @@ export const burgersMenu: MenuItemInterface[] = [
 // SALCHIPAPAS / PAPPAS
 export const salchipapaMenu: MenuItemInterface[] = [
   {
+    id: 19,
+    name: "Salchipapa",
+    description: "Papas fritas con hot dog",
+    price: "12.00",
+    image: "/menu/salchipapa/salchipapa.webp",
+    category: "salchipapa",
+  },
+  {
     id: 20,
     name: "Salchipollo",
     description: "Papas fritas, hot dog y pollo",
     price: "17.00",
-    image: "/img/salchipapas/salchipollo.jpg",
+    image: "/menu/salchipapa/salchipollo.webp",
     category: "salchipapa",
   },
   {
@@ -128,7 +136,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     name: "Pollipapa",
     description: "Papas fritas con pollo",
     price: "17.00",
-    image: "/img/salchipapas/pollipapa.jpg",
+    image: "/img/salchipapa/pollipapa.jpg",
     category: "salchipapa",
   },
   {
