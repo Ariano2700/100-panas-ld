@@ -83,7 +83,7 @@ export const burgersMenu: MenuItemInterface[] = [
     name: "Pa’ los Panas",
     description: "Ensalada, carne, huevo, queso, tocino, chorizo y papas",
     price: "17.00",
-    image: "/menu/hamburguesas/panas.webp",
+    image: "/menu/hamburguesas/pa_los_panas.webp",
     category: "hamburguesa",
     featured: true,
   },
@@ -108,7 +108,7 @@ export const burgersMenu: MenuItemInterface[] = [
     name: "Choripán",
     description: "Ensalada, chorizo y papas",
     price: "8.00",
-    image: "/menu/hamburguesas/chorizo.webp",
+    image: "/menu/hamburguesas/choripan.webp",
     category: "hamburguesa",
   },
 ];
@@ -152,7 +152,7 @@ export const salchipapaMenu: MenuItemInterface[] = [
     name: "Porción de papas",
     description: "Solo papas fritas",
     price: "8.50",
-    image: "/img/salchipapas/papas.jpg",
+    image: "/menu/salchipapa/papas.webp",
     category: "salchipapa",
   },
 ];
@@ -239,6 +239,7 @@ export const drinksMenu: MenuItemInterface[] = [
     price: "2.00",
     image: "/menu/bebidas/pepsi.webp",
     category: "bebida",
+    featured: true,
   },
   {
     id: 53,

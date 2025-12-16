@@ -115,7 +115,7 @@ function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-48 object-cover rounded-lg"
+                className="w-full h-72 object-cover rounded-lg"
               />
             </div>
             <div className="md:w-2/3">
