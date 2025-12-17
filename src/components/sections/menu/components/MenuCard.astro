@@ -28,14 +28,14 @@ const {
   <div
     class={`bg-white rounded-lg shadow-md overflow-hidden h-full ${featured ? "border-2 border-[#E56053]" : "border border-gray-200"}`}
   >
-    <div class="relative h-56 bg-gray-100 overflow-hidden">
+    <div class="relative aspect-square bg-gray-100 overflow-hidden">
       <Image
         src={image}
         alt={name}
-        class="object-cover transition-transform duration-300 w-full h-full hover:scale-105"
+        class="object-contain transition-transform duration-300 w-full h-full hover:scale-105"
         loading="lazy"
-        width={375}
-        height={224}
+        width={400}
+        height={400}
       />
       {
         featured && (
